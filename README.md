@@ -2,8 +2,8 @@
 
 > A high-octane retro space shooter built for the Reddit Developer Platform.
 
-![Space Elumia Banner](https://via.placeholder.com/1200x400.png?text=Space+Elumia+Gameplay) 
-*(Replace with actual screenshot/banner)*
+![banner](https://github.com/user-attachments/assets/d2b1c717-6b1c-4222-b492-6abfb3fee15e)
+
 
 ## Inspiration 💡
 Our inspiration came from the golden age of arcade shooters—games like *Galaga*, *Space Invaders*, and *R-Type*. We wanted to bring that same frenetic, edge-of-your-seat excitement to the Reddit platform, proving that complex, high-performance web games can thrive directly within a Reddit post. The name "Elumia" evokes a sense of cosmic mystery, setting the stage for an epic interstellar journey.
