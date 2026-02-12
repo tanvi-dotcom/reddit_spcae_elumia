@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import 'tailwindcss';
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #050505;
+  overflow: hidden;
+  user-select: none;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+canvas {
+  touch-action: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes starfield {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-starfield {
+  animation: starfield 40s linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(59,130,246,0.5), 0 0 20px rgba(59,130,246,0.3); }
+  50% { text-shadow: 0 0 20px rgba(59,130,246,0.8), 0 0 40px rgba(59,130,246,0.5); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Pause panel */
+.pause-panel {
+  width: min(90vw, 420px);
+  padding: clamp(16px, 3vw, 24px);
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid #1f2937;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.pause-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #facc15;
+  font-size: clamp(20px, 4vw, 32px);
+  margin-bottom: clamp(16px, 3vw, 32px);
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .pause-panel {
+    width: 95vw;
+    padding: 16px;
+  }
+}
+
+/* Level indicator */
+.level-indicator {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.level-indicator .current,
+.level-indicator .total {
+  font-size: clamp(18px, 5vw, 26px);
+}
+.level-indicator .slash {
+  opacity: 0.6;
+}
+
+/* Landscape orientation prompt */
+.landscape-prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes rotate-phone {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-90deg); }
+  50% { transform: rotate(-90deg); }
+  75% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+.rotate-phone-icon {
+  animation: rotate-phone 3s ease-in-out infinite;
+  font-size: 48px;
+}
+
+/* Responsive HUD scaling */
+@media (max-width: 768px) {
+  .hud-top {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+  .hud-top .score-text {
+    font-size: 18px !important;
+  }
+  .hud-top .level-text {
+    font-size: 18px !important;
+  }
+  .hud-top .hp-bar-container {
+    width: 100px !important;
+  }
+  .hud-top .control-btn {
+    width: 36px !important;
+    height: 32px !important;
+  }
+  .hud-top .control-btn-text {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-height: 400px) {
+  .hud-top {
+    padding: 4px 8px !important;
+  }
+  .boss-bar {
+    bottom: 4px !important;
+  }
+}
